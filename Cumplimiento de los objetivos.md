@@ -4,7 +4,7 @@ El presente apartado tiene como finalidad demostrar, mediante evidencia funciona
 
 **Implementar un sistema integral de gestión comercial que automatice los procesos de ventas, sistematice el control de inventarios y centralice la administración financiera, con el fin de optimizar la eficiencia operativa y fortalecer la organización económica del negocio.**
 
-El sistema SACI integra en una sola plataforma los módulos de ventas, inventario, compras, créditos, abonos, devoluciones, productos dañados, cambio de producto, proveedores, cronograma, notas, reportes y ajuste de inventario. La totalidad de las 157 pruebas funcionales ejecutadas fueron aprobadas, evidenciando que el sistema cubre de forma integral los procesos operativos y financieros de la Tienda y Librería Israel, cumpliendo con el objetivo general planteado.
+El sistema SACI integra en una sola plataforma los módulos de ventas, inventario, compras, créditos, abonos, devoluciones, productos dañados, cambio de producto, proveedores, cronograma, notas, reportes y ajuste de inventario. La totalidad de las 161 pruebas funcionales ejecutadas fueron aprobadas, evidenciando que el sistema cubre de forma integral los procesos operativos y financieros de la Tienda y Librería Israel, cumpliendo con el objetivo general planteado.
 
 ## Objetivo Específico 1
 
@@ -36,7 +36,7 @@ El sistema SACI integra en una sola plataforma los módulos de ventas, inventari
 |Fase 2 — Inventario|CP-012 a CP-036|Aprobados|
 |Fase 3 — Compras y Lotes|CP-037 a CP-057|Aprobados|
 |Fase 5 — Complementarios|CP-101 a CP-108|Aprobados|
-|Fase 6 — Reportes|CP-135 a CP-137, CP-141, CP-142, CP-147 a CP-157|Aprobados|
+|Fase 6 — Reportes|CP-135 a CP-137, CP-141, CP-142, CP-147 a CP-157, CP-159 a CP-161|Aprobados|
 
 ### Evidencia del cumplimiento
 
@@ -56,8 +56,10 @@ El sistema SACI integra en una sola plataforma los módulos de ventas, inventari
     
 - **Ajuste de inventario**: se implementó y validó una funcionalidad específica para corregir el stock cuando se detectan diferencias físicas, registrando el motivo, tipo de ajuste (incremento/decremento), stock anterior y nuevo, garantizando la trazabilidad completa (CP-147 a CP-157).
     
+- **Reporte de productos próximos a vencer**: se implementó y validó un reporte que muestra los productos perecederos cuyos lotes vencen en los próximos 15 días, excluyendo automáticamente lotes inactivos, agotados y ya vencidos. Adicionalmente, se validó la unificación de lotes duplicados generados por la excepción de trazabilidad (mismo producto + mismo código + misma fecha), mostrando la cantidad total sumada como un solo registro, así como el cálculo exacto de los totales globales (productos, lotes y unidades) (CP-159 a CP-161).
+    
 
-**Conclusión del objetivo específico 1:** el sistema cumple con el objetivo al ofrecer un control de inventario digital, en tiempo real, con trazabilidad completa, manejo de lotes, FIFO, alertas de stock mínimo y herramientas de ajuste que permiten mantener la precisión del inventario ante cualquier diferencia detectada en bodega.
+**Conclusión del objetivo específico 1:** el sistema cumple con el objetivo al ofrecer un control de inventario digital, en tiempo real, con trazabilidad completa, manejo de lotes, FIFO, alertas de stock mínimo, herramientas de ajuste y un reporte específico de productos próximos a vencer que permiten mantener la precisión del inventario ante cualquier diferencia detectada en bodega.
 
 ## Objetivo Específico 2
 
@@ -84,7 +86,7 @@ El sistema SACI integra en una sola plataforma los módulos de ventas, inventari
 
 |Fase|Casos|Estado|
 |---|---|---|
-|Fase 4 — Ventas|CP-058 a CP-066, CP-068, CP-069, CP-085 a CP-089|Aprobados|
+|Fase 4 — Ventas|CP-058 a CP-066, CP-068, CP-069, CP-085 a CP-089, CP-158|Aprobados|
 |Fase 6 — Reportes|CP-126 a CP-130|Aprobados|
 
 ### Evidencia del cumplimiento
@@ -103,8 +105,10 @@ El sistema SACI integra en una sola plataforma los módulos de ventas, inventari
     
 - **Anulación de ventas**: el sistema anula ventas y restaura automáticamente el inventario, dejando constancia del estado anulado para auditoría (CP-069, CP-070).
     
+- **Edición del método de pago**: se implementó y validó la funcionalidad que permite corregir el método de pago de una venta registrada en estado PAGADA, cuando por error humano se registró con uno distinto al que efectivamente se utilizó. Al realizar el cambio, el sistema limpia automáticamente el monto recibido para mantener la coherencia con el nuevo método (CP-158).
+    
 
-**Conclusión del objetivo específico 2:** el sistema cumple con el objetivo al automatizar completamente el proceso de venta, eliminar los errores humanos en el cálculo del vuelto, generar comprobantes básicos de la transacción y garantizar que los productos despachados correspondan a la venta registrada con el inventario descontado.
+**Conclusión del objetivo específico 2:** el sistema cumple con el objetivo al automatizar completamente el proceso de venta, eliminar los errores humanos en el cálculo del vuelto, generar comprobantes básicos de la transacción y garantizar que los productos despachados correspondan a la venta registrada con el inventario descontado, permitiendo además corregir el método de pago cuando sea necesario.
 
 ## Objetivo Específico 3
 
@@ -169,8 +173,8 @@ El sistema SACI integra en una sola plataforma los módulos de ventas, inventari
 
 ## Conclusión del Cumplimiento de Objetivos
 
-Los tres objetivos específicos y el objetivo general del proyecto fueron cumplidos de forma comprobable mediante la ejecución de 157 casos de prueba funcionales, todos aprobados, y respaldados por los requerimientos funcionales y no funcionales definidos durante la fase de análisis.
+Los tres objetivos específicos y el objetivo general del proyecto fueron cumplidos de forma comprobable mediante la ejecución de 161 casos de prueba funcionales, todos aprobados, y respaldados por los requerimientos funcionales y no funcionales definidos durante la fase de análisis.
 
-El sistema SACI no solo cubre los requisitos mínimos planteados, sino que incorpora módulos adicionales como devoluciones de ventas, cambio de producto, ajuste de inventario y gestión avanzada de productos dañados, fortaleciendo aún más el control operativo y financiero del negocio.
+El sistema SACI no solo cubre los requisitos mínimos planteados, sino que incorpora módulos adicionales como devoluciones de ventas, cambio de producto, ajuste de inventario, gestión avanzada de productos dañados y reporte de productos próximos a vencer, fortaleciendo aún más el control operativo y financiero del negocio.
 
 Se concluye que el sistema implementado constituye una solución integral que resuelve la falta de control operativo y la dependencia de procesos manuales identificados en la pregunta de investigación, garantizando precisión en las ventas, optimización del inventario y centralización de la administración financiera de la Tienda y Librería Israel.
