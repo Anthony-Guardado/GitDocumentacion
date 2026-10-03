@@ -1,5 +1,4 @@
-# 4.4 Comparación con lo Planificado
-
+# Comparación con lo planificado
 El presente apartado tiene como finalidad contrastar los requerimientos funcionales y no funcionales definidos durante la fase de análisis del proyecto con las funcionalidades efectivamente implementadas en el sistema SACI. La comparación permite identificar el nivel de cumplimiento del alcance planificado, las ampliaciones realizadas durante el desarrollo y las funcionalidades adicionales incorporadas para fortalecer la solución.
 
 El alcance original del proyecto consistió en el **desarrollo completo de un sistema integral de gestión comercial** para la Tienda y Librería Israel, cubriendo los 17 requerimientos funcionales y los 6 requerimientos no funcionales definidos. Durante el desarrollo se mantuvo la esencia del alcance planificado, incorporando ajustes y ampliaciones que respondieron a necesidades reales detectadas por el equipo, sugerencias del ingeniero asesor y escenarios operativos de la propietaria del negocio.
@@ -16,12 +15,12 @@ La siguiente tabla resume el estado de cumplimiento de cada requerimiento funcio
 |RF04|Registro de Crédito|Cumplido tal como se planificó|Generación automática del crédito desde la venta, asociación al cliente y control de saldo|
 |RF05|Gestión de Pagos|Cumplido tal como se planificó|Cálculo de vuelto en efectivo y omisión en transferencia|
 |RF06|Gestión y Registro de Productos|Cumplido con ampliaciones|Se agregó manejo de lotes múltiples, reactivación automática y ajuste de inventario|
-|RF07|Control de Vencimiento de Productos|Cumplido con ampliaciones|Alerta visual en el panel principal (dashboard) mediante el módulo de vencimientos próximos|
+|RF07|Control de Vencimiento de Productos|Cumplido con ampliaciones|Alerta visual en el dashboard más un reporte específico de productos próximos a vencer en 15 días con unificación de lotes|
 |RF08|Alerta de Stock Mínimo|Cumplido tal como se planificó|Alerta visual en el dashboard y reporte de inventario|
 |RF09|Registro de Compras|Cumplido con ampliaciones|Cálculo automático del CPP, factor de conversión y trazabilidad mediante lotes|
 |RF10|Recordatorio de Pedidos a Proveedores|Cumplido con ampliaciones|Panel de proveedores en el dashboard con conteo de días previos a la visita|
 |RF11|Cierre de Caja Diario|Cumplido con ampliaciones|Se agregó el vendedor responsable por venta|
-|RF12|Reportes Históricos|Cumplido con ampliaciones significativas|Se desarrollaron 9 reportes específicos: general, ventas, compras, créditos, devoluciones, inventario, cambio de producto, productos dañados y cierre diario|
+|RF12|Reportes Históricos|Cumplido con ampliaciones significativas|Se desarrollaron 10 reportes específicos: general, ventas, compras, créditos, devoluciones, inventario, cambio de producto, productos dañados, cierre diario y productos próximos a vencer|
 |RF13|Notas del Negocio|Cumplido tal como se planificó|CRUD de notas asociadas al usuario|
 |RF14|Gestión de Proveedores|Cumplido tal como se planificó|CRUD completo con validaciones de unicidad|
 |RF15|Registro de Abonos|Cumplido tal como se planificó|Abonos parciales y totales, actualización automática del saldo y anulación|
@@ -55,13 +54,20 @@ Esta ampliación responde a la necesidad real del negocio de mantener precios de
 
 El ticket de venta se amplió para incluir los datos del cliente cuando la venta es a crédito, mostrando nombre y DUI (o solo nombre si no se registró DUI). Esto mejora el respaldo físico para el cliente fiado y facilita la identificación de la deuda.
 
-### RF07 — Alerta de vencimiento
+### RF07 — Alerta y reporte de vencimiento
 
-Se implementó un panel de alertas en el dashboard principal que muestra los productos perecederos cuyos lotes están próximos a vencer, permitiendo a la dueña tomar decisiones oportunas.
+El requerimiento original contemplaba emitir una alerta cuando los productos perecederos estuvieran próximos a vencer. Durante el desarrollo se amplió con dos componentes:
+
+- **Panel de alertas en el dashboard**: muestra los productos perecederos cuyos lotes vencen en los próximos días, permitiendo a la dueña tomar decisiones oportunas.
+    
+- **Reporte específico de productos próximos a vencer**: genera un PDF con todos los productos perecederos cuyos lotes vencen en los próximos 15 días, excluyendo automáticamente lotes inactivos, agotados y ya vencidos.
+    
+
+El reporte además resuelve una problemática derivada de la excepción de trazabilidad de lotes: cuando se realiza una nueva compra de un lote existente, el sistema crea un nuevo registro con el mismo código y fecha de vencimiento (para permitir la anulación diferenciada de cada compra). Esto puede generar múltiples lotes con el mismo código y fecha. El reporte **unifica dichos lotes** mostrando la cantidad total sumada como un solo registro, evitando que la información se fragmente y facilitando la toma de decisiones.
 
 ### RF12 — Reportes ampliados
 
-El requerimiento original contemplaba reportes de ventas, compras y ganancias. Durante el desarrollo se identificó la necesidad de reportes específicos por módulo, desarrollándose finalmente **nueve reportes**:
+El requerimiento original contemplaba reportes de ventas, compras y ganancias. Durante el desarrollo se identificó la necesidad de reportes específicos por módulo, desarrollándose finalmente **diez reportes**:
 
 1. Reporte General (compras + ventas + productos dañados con ganancia neta)
     
@@ -80,6 +86,8 @@ El requerimiento original contemplaba reportes de ventas, compras y ganancias. D
 8. Reporte de Productos Dañados (separado por origen)
     
 9. Reporte de Cierre Diario (consolidado por método de pago)
+    
+10. Reporte de Productos Próximos a Vencer (productos perecederos con lotes que vencen en 15 días, con unificación de lotes duplicados)
     
 
 Cada uno con filtros por rango de fechas y filtros adicionales según su naturaleza.
@@ -196,6 +204,44 @@ Estos estados surgieron de escenarios operativos reales y de la necesidad de ref
 
 Durante el desarrollo de los reportes se determinó que el Reporte General no debía incluir las devoluciones de ventas de forma explícita, ya que los productos devueltos en estado PERFECTO reingresan al inventario y los DAÑADOS se reflejan en el módulo de productos dañados. Incluir las devoluciones como sección separada generaba duplicación de pérdidas en el cálculo financiero. Esta decisión fue tomada por el equipo para garantizar la coherencia del reporte.
 
+### Reporte de Productos Próximos a Vencer
+
+El requerimiento original de control de vencimiento solo contemplaba alertas visuales en el panel principal. Sin embargo, durante el desarrollo se identificó la necesidad de contar con un documento formal descargable que permitiera a la propietaria revisar la lista completa de productos próximos a vencer en un período determinado, permitiéndole planificar acciones de venta con anticipación.
+
+Se desarrolló entonces un reporte específico que:
+
+- Muestra los productos perecederos cuyos lotes vencen en los próximos 15 días.
+    
+- Excluye automáticamente lotes inactivos, agotados y ya vencidos.
+    
+- Unifica lotes duplicados generados por la excepción de trazabilidad.
+    
+- Presenta la información agrupada por producto con sub-tabla de lotes.
+    
+- Calcula totales globales: productos por vencer, lotes unificados y unidades totales próximas a vencer.
+    
+- Muestra un mensaje informativo cuando no hay productos en el rango.
+    
+
+Este reporte complementa el sistema de alertas del dashboard y refuerza el control operativo del inventario perecedero.
+
+### Edición del Método de Pago en Ventas
+
+Aunque no estaba contemplado en los requerimientos originales, durante el desarrollo se identificó la necesidad de permitir la corrección del método de pago de una venta ya registrada. Este escenario surge cuando por error humano se registra una venta con un método distinto al que efectivamente se utilizó (por ejemplo, se registra como transferencia cuando en realidad fue efectivo, o viceversa).
+
+Se desarrolló la funcionalidad que:
+
+- Permite editar el método de pago únicamente en ventas en estado PAGADA.
+    
+- Bloquea la edición en ventas anuladas, en devolución o a crédito.
+    
+- Limpia automáticamente el monto recibido al cambiar el método, manteniendo la coherencia con el nuevo método.
+    
+- Registra la fecha de actualización para auditoría.
+    
+
+Esta funcionalidad aporta flexibilidad operativa al sistema y protege la integridad de la información financiera ante posibles errores humanos.
+
 ## 4.4.4 Cumplimiento de Requerimientos No Funcionales
 
 |ID|Requerimiento|Estado|Evidencia|
@@ -238,7 +284,8 @@ Además de las ampliaciones y funcionalidades adicionales, se presentaron alguno
 |Devolución de productos vencidos a proveedor|Devolución fiscal con nota de crédito|Cambio de producto|Restricciones fiscales de Hacienda|
 |Estados de venta|PAGADA y CREDITO|PAGADA, CREDITO, ANULADA, DEVOLUCION|Escenarios operativos reales|
 |Cierre diario|Total por método de pago|Total por método de pago + vendedor|Facilita la trazabilidad para reclamos|
-|Reportes|3 reportes generales|9 reportes específicos|Necesidades detectadas durante el desarrollo|
+|Reportes|3 reportes generales|10 reportes específicos|Necesidades detectadas durante el desarrollo|
+|Reporte de vencimiento|Solo alerta visual en dashboard|Alerta visual + reporte PDF de productos próximos a vencer|Necesidad de planificación anticipada de ventas|
 
 ## 4.4.6 Conclusión de la Comparación
 
@@ -256,6 +303,10 @@ El alcance planificado no solo fue cubierto en su totalidad, sino que fue **supe
     
 - Sistema de backups automáticos con cifrado y subida a la nube.
     
+- Reporte de productos próximos a vencer con unificación automática de lotes duplicados.
+    
+- Edición de método de pago en ventas registradas.
+    
 
 Estas ampliaciones fortalecen la propuesta del sistema y demuestran que el equipo no se limitó a cumplir con lo mínimo requerido, sino que buscó ofrecer una solución integral, segura y sostenible.
 
@@ -269,7 +320,7 @@ Estas ampliaciones fortalecen la propuesta del sistema y demuestran que el equip
 
 ### Cumplimiento de objetivos
 
-El sistema cumple con el objetivo general y los tres objetivos específicos definidos en la fase de investigación, verificados mediante la ejecución de 157 casos de prueba funcionales, todos aprobados.
+El sistema cumple con el objetivo general y los tres objetivos específicos definidos en la fase de investigación, verificados mediante la ejecución de **161 casos de prueba funcionales**, todos aprobados.
 
 ### Cumplimiento de requerimientos
 
@@ -338,8 +389,6 @@ Aunque el sistema está listo para su implementación, se identifican mejoras qu
     
 - **Registro de marcas, categorías y proveedores desde el módulo de compras**: para agilizar la operación.
     
-- **Reporte de productos próximos a vencer**: complementario al panel de alertas del dashboard.
-    
 - **Contenedor Docker con scheduler**: para garantizar la ejecución de los backups automáticos sin depender de un proceso manual.
     
 - **Escalabilidad a múltiples sucursales**: en caso de expansión del negocio.
@@ -349,6 +398,6 @@ Estas mejoras no son requisitos del sistema actual y su implementación depender
 
 ### Conclusión final
 
-El sistema SACI **cumple con los estándares internacionales de desarrollo**, presenta una **estructura de proyecto profesional**, ha sido **validado exhaustivamente mediante 157 pruebas funcionales aprobadas**, cuenta con **respaldos automáticos y cifrados**, y ha **superado el alcance planificado** incorporando funcionalidades adicionales de valor.
+El sistema SACI **cumple con los estándares internacionales de desarrollo**, presenta una **estructura de proyecto profesional**, ha sido **validado exhaustivamente mediante 161 pruebas funcionales aprobadas**, cuenta con **respaldos automáticos y cifrados**, y ha **superado el alcance planificado** incorporando funcionalidades adicionales de valor.
 
 En consecuencia, el sistema se encuentra **listo para su implementación en la Tienda y Librería Israel**, constituyendo una solución integral, segura, trazable y sostenible que responde a las necesidades operativas y financieras del negocio.
