@@ -523,66 +523,65 @@ Los resultados obtenidos servirán para identificar posibles oportunidades de op
 
 ### Fase 2
 
-|ID|Fase|Caso de prueba|Descripción|Escenarios|Tiempo esperado|Tiempo obtenido|Estado|
-|---|---|---|---|---|---|---|---|
-|CPR-007|Fase 2|Consulta paginada de productos|Medir el tiempo de carga del listado paginado de productos.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-008|Fase 2|Consulta detallada de productos|Medir el tiempo de carga de la información detallada de un producto junto con sus relaciones.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-009|Fase 2|Consulta paginada de compras|Medir el tiempo de carga del listado paginado de compras.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-010|Fase 2|Consulta detallada de compras|Medir el tiempo de recuperación del detalle completo de una compra.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-011|Fase 2|Consulta paginada de ventas|Medir el tiempo de carga del listado paginado de ventas.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-012|Fase 2|Consulta detallada de ventas|Medir el tiempo de recuperación del detalle completo de una venta.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-013|Fase 2|Consulta paginada de créditos|Medir el tiempo de carga del listado paginado de créditos.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-014|Fase 2|Consulta detallada de créditos|Medir el tiempo de recuperación del detalle completo de un crédito.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-015|Fase 2|Consulta paginada de abonos|Medir el tiempo de carga del listado paginado de abonos.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-016|Fase 2|Historial de abonos por crédito|Medir el tiempo de recuperación del historial de abonos asociado a un crédito.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-017|Fase 2|Consulta paginada de productos dañados|Medir el tiempo de carga del listado paginado de productos dañados.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-018|Fase 2|Consulta detallada de productos dañados|Medir el tiempo de recuperación de la información detallada de un producto dañado.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-019|Fase 2|Consulta paginada de cambios de producto|Medir el tiempo de carga del listado paginado de cambios de producto.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-020|Fase 2|Consulta detallada de cambios de producto|Medir el tiempo de recuperación de la información detallada de un cambio de producto.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
+| ID      | Fase   | Caso de prueba                            | Descripción                                                                                   | Escenarios         | Tiempo esperado | Tiempo obtenido | Estado    |
+| ------- | ------ | ----------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | --------- |
+| CPR-007 | Fase 2 | Consulta paginada de productos            | Medir el tiempo de carga del listado paginado de productos.                                   | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-008 | Fase 2 | Consulta detallada de productos           | Medir el tiempo de carga de la información detallada de un producto junto con sus relaciones. | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-009 | Fase 2 | Consulta paginada de compras              | Medir el tiempo de carga del listado paginado de compras.                                     | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-010 | Fase 2 | Consulta detallada de compras             | Medir el tiempo de recuperación del detalle completo de una compra.                           | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-011 | Fase 2 | Consulta paginada de ventas               | Medir el tiempo de carga del listado paginado de ventas.                                      | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-012 | Fase 2 | Consulta detallada de ventas              | Medir el tiempo de recuperación del detalle completo de una venta.                            | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-013 | Fase 2 | Consulta paginada de créditos             | Medir el tiempo de carga del listado paginado de créditos.                                    | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-014 | Fase 2 | Consulta detallada de créditos            | Medir el tiempo de recuperación del detalle completo de un crédito.                           | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-015 | Fase 2 | Historial de abonos por crédito           | Medir el tiempo de recuperación del historial de abonos asociado a un crédito.                | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-016 | Fase 2 | Consulta paginada de productos dañados    | Medir el tiempo de carga del listado paginado de productos dañados.                           | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-017 | Fase 2 | Consulta detallada de productos dañados   | Medir el tiempo de recuperación de la información detallada de un producto dañado.            | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-018 | Fase 2 | Consulta paginada de cambios de producto  | Medir el tiempo de carga del listado paginado de cambios de producto.                         | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-019 | Fase 2 | Consulta detallada de cambios de producto | Medir el tiempo de recuperación de la información detallada de un cambio de producto.         | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
 
 ---
 
 ### Fase 3
 
-|ID|Fase|Caso de prueba|Descripción|Escenarios|Tiempo esperado|Tiempo obtenido|Estado|
-|---|---|---|---|---|---|---|---|
-|CPR-021|Fase 3|Búsqueda de productos por nombre|Medir el tiempo de respuesta de la búsqueda de productos por nombre.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-022|Fase 3|Filtrado de productos por categoría|Medir el tiempo de respuesta del filtrado de productos por categoría.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-023|Fase 3|Filtrado de productos por marca|Medir el tiempo de respuesta del filtrado de productos por marca.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-024|Fase 3|Paginación de productos|Medir el tiempo de carga de las páginas del listado de productos.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-025|Fase 3|Búsqueda de proveedores por nombre|Medir el tiempo de respuesta de la búsqueda de proveedores.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-026|Fase 3|Paginación de proveedores|Medir el tiempo de carga de las páginas del listado de proveedores.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-027|Fase 3|Filtrado de compras por rango de fechas|Medir el tiempo de respuesta del filtrado de compras por fechas.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-028|Fase 3|Paginación de compras|Medir el tiempo de carga de las páginas del listado de compras.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-029|Fase 3|Filtrado de ventas por rango de fechas|Medir el tiempo de respuesta del filtrado de ventas por fechas.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-030|Fase 3|Paginación de ventas|Medir el tiempo de carga de las páginas del listado de ventas.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-031|Fase 3|Búsqueda de créditos por cliente|Medir el tiempo de respuesta de la consulta de créditos asociados a un cliente.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-032|Fase 3|Filtrado de créditos por estado|Medir el tiempo de respuesta del filtrado de créditos según su estado.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-033|Fase 3|Paginación de créditos|Medir el tiempo de carga de las páginas del listado de créditos.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-034|Fase 3|Historial de abonos asociado a un crédito|Medir el tiempo de recuperación del historial de abonos de un crédito.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-035|Fase 3|Filtrado de productos dañados por fecha|Medir el tiempo de respuesta del filtrado de productos dañados por fecha.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-036|Fase 3|Paginación de productos dañados|Medir el tiempo de carga de las páginas del listado de productos dañados.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-037|Fase 3|Filtrado de cambios de producto por estado|Medir el tiempo de respuesta del filtrado de cambios de producto por estado.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-038|Fase 3|Paginación de cambios de producto|Medir el tiempo de carga de las páginas del listado de cambios de producto.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-039|Fase 3|Búsqueda de lotes por producto|Medir el tiempo de respuesta de la búsqueda de lotes asociados a un producto.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
-|CPR-040|Fase 3|Filtrado de lotes próximos a vencer|Medir el tiempo de respuesta del filtrado de lotes próximos a vencer.|Bajo, Medio y Alto|≤ 2 s|Pendiente|Pendiente|
+| ID      | Fase   | Caso de prueba                             | Descripción                                                                     | Escenarios         | Tiempo esperado | Tiempo obtenido | Estado    |
+| ------- | ------ | ------------------------------------------ | ------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | --------- |
+| CPR-020 | Fase 3 | Búsqueda de productos por nombre           | Medir el tiempo de respuesta de la búsqueda de productos por nombre.            | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-021 | Fase 3 | Filtrado de productos por categoría        | Medir el tiempo de respuesta del filtrado de productos por categoría.           | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-022 | Fase 3 | Filtrado de productos por marca            | Medir el tiempo de respuesta del filtrado de productos por marca.               | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-023 | Fase 3 | Paginación de productos                    | Medir el tiempo de carga de las páginas del listado de productos.               | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-024 | Fase 3 | Búsqueda de proveedores por nombre         | Medir el tiempo de respuesta de la búsqueda de proveedores.                     | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-025 | Fase 3 | Paginación de proveedores                  | Medir el tiempo de carga de las páginas del listado de proveedores.             | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-026 | Fase 3 | Filtrado de compras por rango de fechas    | Medir el tiempo de respuesta del filtrado de compras por fechas.                | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-027 | Fase 3 | Paginación de compras                      | Medir el tiempo de carga de las páginas del listado de compras.                 | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-028 | Fase 3 | Filtrado de ventas por rango de fechas     | Medir el tiempo de respuesta del filtrado de ventas por fechas.                 | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-029 | Fase 3 | Paginación de ventas                       | Medir el tiempo de carga de las páginas del listado de ventas.                  | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-030 | Fase 3 | Búsqueda de créditos por cliente           | Medir el tiempo de respuesta de la consulta de créditos asociados a un cliente. | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-031 | Fase 3 | Filtrado de créditos por estado            | Medir el tiempo de respuesta del filtrado de créditos según su estado.          | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-032 | Fase 3 | Paginación de créditos                     | Medir el tiempo de carga de las páginas del listado de créditos.                | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-033 | Fase 3 | Historial de abonos asociado a un crédito  | Medir el tiempo de recuperación del historial de abonos de un crédito.          | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-034 | Fase 3 | Filtrado de productos dañados por fecha    | Medir el tiempo de respuesta del filtrado de productos dañados por fecha.       | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-035 | Fase 3 | Paginación de productos dañados            | Medir el tiempo de carga de las páginas del listado de productos dañados.       | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-036 | Fase 3 | Filtrado de cambios de producto por estado | Medir el tiempo de respuesta del filtrado de cambios de producto por estado.    | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-037 | Fase 3 | Paginación de cambios de producto          | Medir el tiempo de carga de las páginas del listado de cambios de producto.     | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
+| CPR-038 | Fase 3 | Filtrado de lotes próximos a vencer        | Medir el tiempo de respuesta del filtrado de lotes próximos a vencer.           | Bajo, Medio y Alto | ≤ 2 s           | Pendiente       | Pendiente |
 
 ---
 
 ### Fase 4
 
-|ID|Fase|Caso de prueba|Descripción|Escenarios|Tiempo esperado|Tiempo obtenido|Estado|
-|---|---|---|---|---|---|---|---|
-|CPR-041|Fase 4|Generación del reporte general|Medir el tiempo de generación del reporte general (compras, ventas y productos dañados).|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-042|Fase 4|Generación del reporte de ventas|Medir el tiempo de generación del reporte de ventas con filtros por fechas, tipo cliente, método de pago y estado.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-043|Fase 4|Generación del reporte de compras|Medir el tiempo de generación del reporte de compras con detalle de productos y lotes.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-044|Fase 4|Generación del reporte de créditos|Medir el tiempo de generación del reporte de créditos agrupado por cliente.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-045|Fase 4|Generación del reporte de devoluciones de ventas|Medir el tiempo de generación del reporte de devoluciones separando productos perfectos y dañados.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-046|Fase 4|Generación del reporte de inventario|Medir el tiempo de generación del reporte de inventario con filtros por sección, marca, categoría y estado.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-047|Fase 4|Generación del reporte de cambio de producto|Medir el tiempo de generación del reporte de cambio de producto separado por estado.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-048|Fase 4|Generación del reporte de productos dañados|Medir el tiempo de generación del reporte de productos dañados separado por origen.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-049|Fase 4|Generación del reporte de cierre diario|Medir el tiempo de generación del reporte consolidado de ventas del día por método de pago.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
-|CPR-050|Fase 4|Generación del reporte de productos próximos a vencer|Medir el tiempo de generación del reporte de productos perecederos cuyos lotes vencen en los próximos 15 días, con unificación de lotes duplicados.|Bajo, Medio y Alto|≤ 5 s|Pendiente|Pendiente|
+| ID      | Fase   | Caso de prueba                                        | Descripción                                                                                                                                         | Escenarios         | Tiempo esperado | Tiempo obtenido | Estado    |
+| ------- | ------ | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | --------- |
+| CPR-039 | Fase 4 | Generación del reporte general                        | Medir el tiempo de generación del reporte general (compras, ventas y productos dañados).                                                            | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-040 | Fase 4 | Generación del reporte de ventas                      | Medir el tiempo de generación del reporte de ventas con filtros por fechas, tipo cliente, método de pago y estado.                                  | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-041 | Fase 4 | Generación del reporte de compras                     | Medir el tiempo de generación del reporte de compras con detalle de productos y lotes.                                                              | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-042 | Fase 4 | Generación del reporte de créditos                    | Medir el tiempo de generación del reporte de créditos agrupado por cliente.                                                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-043 | Fase 4 | Generación del reporte de devoluciones de ventas      | Medir el tiempo de generación del reporte de devoluciones separando productos perfectos y dañados.                                                  | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-044 | Fase 4 | Generación del reporte de inventario                  | Medir el tiempo de generación del reporte de inventario con filtros por sección, marca, categoría y estado.                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-045 | Fase 4 | Generación del reporte de cambio de producto          | Medir el tiempo de generación del reporte de cambio de producto separado por estado.                                                                | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-046 | Fase 4 | Generación del reporte de productos dañados           | Medir el tiempo de generación del reporte de productos dañados separado por origen.                                                                 | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-047 | Fase 4 | Generación del reporte de cierre diario               | Medir el tiempo de generación del reporte consolidado de ventas del día por método de pago.                                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-048 | Fase 4 | Generación del reporte de productos próximos a vencer | Medir el tiempo de generación del reporte de productos perecederos cuyos lotes vencen en los próximos 15 días, con unificación de lotes duplicados. | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+
 
 ## 10. Herramientas utilizadas
 
