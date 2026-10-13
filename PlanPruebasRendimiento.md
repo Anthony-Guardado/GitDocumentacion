@@ -51,7 +51,7 @@ Dentro del alcance de las pruebas de rendimiento se incluyen las siguientes oper
     
 - Búsqueda de categorías por nombre.
     
-- Filtrado de productos por categoría, marca y estado.
+- Filtrado de productos por categoría y marca.
     
 - Consulta y filtrado de compras.
     
@@ -61,9 +61,7 @@ Dentro del alcance de las pruebas de rendimiento se incluyen las siguientes oper
     
 - Consulta y filtrado de abonos.
     
-- Consulta y filtrado de proveedores.
-    
-- Consulta y filtrado de lotes, incluyendo productos próximos a vencer.
+- Consulta de proveedores.
     
 - Consulta y filtrado de productos dañados.
     
@@ -168,23 +166,23 @@ Con el objetivo de analizar el comportamiento del sistema ante diferentes volúm
 
 Los volúmenes estimados para cada escenario serán los siguientes:
 
-|Entidad|Escenario Bajo|Escenario Medio|Escenario Alto|
-|---|---|---|---|
-|Categorías|20|35|50|
-|Marcas|20|35|50|
-|Proveedores|50|100|200|
-|Productos|1,000|3,000|5,000|
-|Compras|1,000|2,000|3,000|
-|Lotes|2,000|5,000|10,000|
-|Ventas|2,000|5,000|10,000|
-|Detalles de ventas|6,000|12,000|30,000|
-|Créditos|300|600|1,000|
-|Abonos|1,000|3,000|5,000|
-|Devolución de venta|300|600|1,000|
-|Detalle devolución de venta|900|1,800|4,000|
-|Productos dañados|200|500|1,000|
-|Cambio de producto|500|1,000|2,000|
-|Notas|300|600|1,000|
+| Entidad<br>                 | Escenario Bajo | Escenario Medio | Escenario Alto |
+| :---------------------------- | ---------------- | ----------------- | ---------------- |
+| Categorías                  | 20             | 35              | 50             |
+| Marcas                      | 20             | 35              | 50             |
+| Proveedores                 | 50             | 100             | 200            |
+| Productos                   | 1,000          | 3,000           | 5,000          |
+| Compras                     | 1,000          | 2,000           | 3,000          |
+| Lotes                       | 2,000          | 5,000           | 10,000         |
+| Ventas                      | 2,000          | 5,000           | 10,000         |
+| Detalles de ventas          | 6,000          | 12,000          | 30,000         |
+| Créditos                    | 300            | 600             | 1,000          |
+| Abonos                      | 1,000          | 3,000           | 5,000          |
+| Devolución de venta         | 300            | 600             | 1,000          |
+| Detalle devolución de venta | 900            | 1,800           | 4,000          |
+| Productos dañados           | 200            | 500             | 1,000          |
+| Cambio de producto          | 500            | 1,000           | 2,000          |
+| Notas                       | 300            | 600             | 1,000          |
 
 La utilización de estos escenarios permitirá evaluar el comportamiento de consultas, búsquedas, filtros, paginación, relaciones entre entidades y generación de reportes conforme aumenta la cantidad de información almacenada en PostgreSQL.
 
@@ -400,13 +398,9 @@ Evaluar el rendimiento de las búsquedas, filtros y mecanismos de paginación im
     
 - Paginación de proveedores.
     
-- Búsqueda de compras por proveedor.
-    
 - Filtrado de compras por rango de fechas.
     
 - Paginación de compras.
-    
-- Búsqueda de ventas por correlativo.
     
 - Filtrado de ventas por rango de fechas.
     
@@ -427,8 +421,6 @@ Evaluar el rendimiento de las búsquedas, filtros y mecanismos de paginación im
 - Filtrado de cambios de producto por estado.
     
 - Paginación de cambios de producto.
-    
-- Búsqueda de lotes por producto.
     
 - Filtrado de lotes próximos a vencer.
     
