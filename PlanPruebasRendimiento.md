@@ -512,7 +512,7 @@ Los resultados obtenidos servirán para identificar posibles oportunidades de op
 
 |ID|Fase|Caso de prueba|Descripción|Escenarios|Tiempo esperado|Tiempo obtenido|Estado|
 |---|---|---|---|---|---|---|---|
-|CPR-001|Fase 1|Consulta paginada de categorías|Medir el tiempo de carga del listado paginado de categorías.|Bajo, Medio y Alto|≤ 1 s|Pendiente|Pendiente|
+|CPR-001|Fase 1|Consulta paginada de categorías|Medir el tiempo de carga del listado paginado de categorías.|Bajo, Medio y Alto|≤ 1 s|0,14 s|Aprobado|
 |CPR-002|Fase 1|Búsqueda de categorías por nombre|Medir el tiempo de respuesta de la búsqueda de categorías.|Bajo, Medio y Alto|≤ 1 s|Pendiente|Pendiente|
 |CPR-003|Fase 1|Consulta paginada de marcas|Medir el tiempo de carga del listado paginado de marcas.|Bajo, Medio y Alto|≤ 1 s|Pendiente|Pendiente|
 |CPR-004|Fase 1|Búsqueda de marcas por nombre|Medir el tiempo de respuesta de la búsqueda de marcas.|Bajo, Medio y Alto|≤ 1 s|Pendiente|Pendiente|
