@@ -96,19 +96,16 @@ Es importante señalar que las especificaciones de hardware y software descritas
 
 ### 5.1. Hardware utilizado
 
-Las pruebas de rendimiento serán ejecutadas utilizando el equipo de desarrollo disponible para el proyecto. Las especificaciones del hardware que será empleado durante la ejecución de las pruebas se presentan a continuación:
+Las pruebas de rendimiento fueron realizadas localmente utilizando el equipo de desarrollo disponible para el proyecto. Las especificaciones del hardware utilizado durante la ejecución de las pruebas se presentan a continuación:
 
 |Componente|Especificación|
 |---|---|
-|Procesador|AMD Ryzen 3 7320U with Radeon Graphics|
-|Frecuencia base|2.40 GHz|
-|Memoria RAM|8 GB DDR5 (7.24 GB utilizables)|
-|Velocidad de memoria|5500 MT/s|
-|Almacenamiento|SSD NVMe de 238 GB|
-|Tarjeta gráfica|AMD Radeon Graphics Integrada|
-|Arquitectura del sistema|64 bits|
+|Procesador|Intel Core i5-1235U|
+|Memoria RAM|16 GB DDR4|
+|Almacenamiento|SSD NVMe M.2 de 512 GB|
+|Sistema operativo|Windows 11 Home de 64 bits|
 
-Las pruebas serán realizadas localmente sobre este equipo con el propósito de evaluar el comportamiento de las consultas, búsquedas, filtros, paginación y generación de reportes implementados en SACI. Las características descritas permiten documentar el entorno de evaluación que será utilizado durante el proceso de pruebas y servirán como referencia para la interpretación de los resultados obtenidos posteriormente.
+Las pruebas fueron realizadas localmente sobre este equipo con el propósito de evaluar el comportamiento de las consultas, búsquedas, filtros, paginación y generación de reportes implementados en SACI. Las características descritas documentan el entorno de evaluación utilizado y sirven como referencia para la interpretación de los resultados obtenidos.
 
 ### 5.2. Software utilizado
 
@@ -143,6 +140,8 @@ La configuración utilizada para las pruebas estará compuesta por los siguiente
 - Comunicación entre frontend, backend y base de datos dentro del mismo entorno de pruebas.
     
 - Conjunto de datos de prueba generado específicamente para la ejecución de las pruebas de rendimiento.
+    
+- Docker con una asignación de 4 GB de memoria RAM durante la ejecución de las pruebas.
     
 - Ausencia de usuarios concurrentes externos durante la ejecución de las mediciones.
     
@@ -184,6 +183,14 @@ Los volúmenes estimados para cada escenario serán los siguientes:
 | Cambio de producto          | 500            | 1,000           | 2,000          |
 | Notas                       | 300            | 600             | 1,000          |
 
+Para la prueba específica del reporte de lotes próximos a vencer, se utilizará un conjunto de datos independiente de los volúmenes generales indicados anteriormente. Los registros para esta prueba se organizarán en los siguientes escenarios:
+
+| Escenario | Lotes próximos a vencer |
+|---|---:|
+| Bajo | 500 |
+| Medio | 1,000 |
+| Alto | 1,500 |
+
 La utilización de estos escenarios permitirá evaluar el comportamiento de consultas, búsquedas, filtros, paginación, relaciones entre entidades y generación de reportes conforme aumenta la cantidad de información almacenada en PostgreSQL.
 
 Asimismo, los resultados obtenidos permitirán identificar posibles oportunidades de optimización en las consultas implementadas mediante Laravel y Eloquent ORM, verificando que el desempeño del sistema se mantenga dentro de los criterios de aceptación establecidos para el proyecto.
@@ -201,8 +208,8 @@ Los tiempos definidos se consideran aceptables para un sistema de administració
 |Búsquedas y filtros|≤ 2 segundos|
 |Recuperación de relaciones entre entidades|≤ 2 segundos|
 |Consultas de lotes y control FIFO|≤ 3 segundos|
-|Generación de reportes operativos|≤ 5 segundos|
-|Generación de reportes estadísticos|≤ 5 segundos|
+|Generación de reportes operativos|≤ 1 minuto|
+|Generación de reportes estadísticos|≤ 1 minuto|
 |Respuesta de endpoints API|≤ 2 segundos|
 
 Los tiempos máximos establecidos fueron definidos considerando la naturaleza operativa de SACI y las buenas prácticas relacionadas con la experiencia de usuario en sistemas de gestión empresarial. Las operaciones de consulta, búsqueda y filtrado requieren respuestas rápidas debido a su uso frecuente durante las actividades diarias de la tienda, mientras que los procesos de generación de reportes admiten tiempos ligeramente superiores debido al procesamiento adicional de información que involucran.
@@ -479,7 +486,9 @@ Evaluar el rendimiento de los reportes del sistema, verificando que mantengan ti
 
 #### Criterio de aceptación
 
-Los reportes deberán completar su ejecución en un tiempo igual o inferior a 5 segundos.
+- **Aprobado:** El reporte se genera correctamente en un tiempo igual o inferior a 1 minuto.
+- **En revisión:** El reporte se genera correctamente, pero tarda más de 1 minuto.
+- **Fallido:** El reporte no se genera correctamente.
 
 #### Resultados esperados
 
@@ -571,16 +580,16 @@ Los resultados obtenidos servirán para identificar posibles oportunidades de op
 
 | ID      | Fase   | Caso de prueba                                        | Descripción                                                                                                                                         | Escenarios         | Tiempo esperado | Tiempo obtenido | Estado    |
 | ------- | ------ | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | --------- |
-| CPR-039 | Fase 4 | Generación del reporte general                        | Medir el tiempo de generación del reporte general (compras, ventas y productos dañados).                                                            | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-040 | Fase 4 | Generación del reporte de ventas                      | Medir el tiempo de generación del reporte de ventas con filtros por fechas, tipo cliente, método de pago y estado.                                  | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-041 | Fase 4 | Generación del reporte de compras                     | Medir el tiempo de generación del reporte de compras con detalle de productos y lotes.                                                              | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-042 | Fase 4 | Generación del reporte de créditos                    | Medir el tiempo de generación del reporte de créditos agrupado por cliente.                                                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-043 | Fase 4 | Generación del reporte de devoluciones de ventas      | Medir el tiempo de generación del reporte de devoluciones separando productos perfectos y dañados.                                                  | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-044 | Fase 4 | Generación del reporte de inventario                  | Medir el tiempo de generación del reporte de inventario con filtros por sección, marca, categoría y estado.                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-045 | Fase 4 | Generación del reporte de cambio de producto          | Medir el tiempo de generación del reporte de cambio de producto separado por estado.                                                                | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-046 | Fase 4 | Generación del reporte de productos dañados           | Medir el tiempo de generación del reporte de productos dañados separado por origen.                                                                 | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-047 | Fase 4 | Generación del reporte de cierre diario               | Medir el tiempo de generación del reporte consolidado de ventas del día por método de pago.                                                         | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
-| CPR-048 | Fase 4 | Generación del reporte de productos próximos a vencer | Medir el tiempo de generación del reporte de productos perecederos cuyos lotes vencen en los próximos 15 días, con unificación de lotes duplicados. | Bajo, Medio y Alto | ≤ 5 s           | Pendiente       | Pendiente |
+| CPR-039 | Fase 4 | Generación del reporte general                        | Medir el tiempo de generación del reporte general (compras, ventas y productos dañados).                                                            | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-040 | Fase 4 | Generación del reporte de ventas                      | Medir el tiempo de generación del reporte de ventas con filtros por fechas, tipo cliente, método de pago y estado.                                  | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-041 | Fase 4 | Generación del reporte de compras                     | Medir el tiempo de generación del reporte de compras con detalle de productos y lotes.                                                              | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-042 | Fase 4 | Generación del reporte de créditos                    | Medir el tiempo de generación del reporte de créditos agrupado por cliente.                                                                         | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-043 | Fase 4 | Generación del reporte de devoluciones de ventas      | Medir el tiempo de generación del reporte de devoluciones separando productos perfectos y dañados.                                                  | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-044 | Fase 4 | Generación del reporte de inventario                  | Medir el tiempo de generación del reporte de inventario con filtros por sección, marca, categoría y estado.                                         | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-045 | Fase 4 | Generación del reporte de cambio de producto          | Medir el tiempo de generación del reporte de cambio de producto separado por estado.                                                                | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-046 | Fase 4 | Generación del reporte de productos dañados           | Medir el tiempo de generación del reporte de productos dañados separado por origen.                                                                 | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-047 | Fase 4 | Generación del reporte de cierre diario               | Medir el tiempo de generación del reporte consolidado de ventas del día por método de pago.                                                         | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
+| CPR-048 | Fase 4 | Generación del reporte de productos próximos a vencer | Medir el tiempo de generación del reporte de productos perecederos cuyos lotes vencen en los próximos 15 días, con unificación de lotes duplicados. | Bajo, Medio y Alto | ≤ 1 min           | Pendiente       | Pendiente |
 
 
 ## 10. Herramientas utilizadas
