@@ -120,8 +120,10 @@ Aprobado
 **Evidencia**
 
 Tablas
+<br/>
 <img width="274" height="247" alt="image" src="https://github.com/user-attachments/assets/1359795a-3779-42f4-8f70-e25e64100fba" />
 <img width="467" height="243" alt="image" src="https://github.com/user-attachments/assets/c6c9b768-6c8a-44b6-99ab-488c45eece7f" />
+<br/>
 Totales
 <img width="705" height="219" alt="image" src="https://github.com/user-attachments/assets/96845634-dcfb-48d5-a1b0-aa3859b5a9ac" />
 ##### Prueba de rendimiento
